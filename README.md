@@ -1,4 +1,5 @@
 # from-recompose-to-react-hooks
+A guide to help migrate from [recompose](https://github.com/acdlite/recompose) to the [React Hooks API](https://reactjs.org/docs/hooks-intro.html).
 
 ## Event Handlers
 
