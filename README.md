@@ -1,6 +1,46 @@
 # from-recompose-to-react-hooks
 A guide to help migrate from [recompose](https://github.com/acdlite/recompose) to the [React Hooks API](https://reactjs.org/docs/hooks-intro.html).
 
+## State
+
+##### Recompose
+```javascript
+import React from "react";
+import { withState } from "recompose";
+
+const Counter = ({ count, setCount }) => (
+  <div>
+    <div>{count}</div>
+    <button onClick={event => setCount(count => count + 1)}>Increment</button>
+    <button onClick={event => setCount(count => count - 1)}>Decrement</button>
+  </div>
+);
+
+const enhance = withState('count', 'setCount', 0);
+
+export default enhance(Counter);
+```
+[![Edit react-windowed-select](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/m44jwlzvrx)
+
+##### React Hooks
+```javascript
+import React, { useState } from "react";
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <div>{count}</div>
+      <button onClick={event => setCount(count => count + 1)}>Increment</button>
+      <button onClick={event => setCount(count => count - 1)}>Decrement</button>
+    </div>
+  );
+};
+
+export default Counter;
+```
+[![Edit react-windowed-select](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/6471zjro33)
+
 ## Event Handlers
 
 ##### Recompose
